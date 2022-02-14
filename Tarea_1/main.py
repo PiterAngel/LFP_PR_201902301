@@ -12,7 +12,7 @@ def abrir():  # FUNCION ABRIR
         title="Seleccionar un archivo",
         initialdir="./",  # la ./ seleccionar donde esta el archivo
         filetypes=(
-            ("archivos LFP", "*.txt"),
+            ("archivos LFP", "*.lfp"),
             ("TODOS LOS ARCHIVOS", "*.*")  # *.* para cualquier cosa
             # data.txt
             # Holaclase.claselfp
