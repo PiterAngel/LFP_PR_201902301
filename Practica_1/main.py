@@ -13,11 +13,12 @@ class main2:
         self.app()
 
     def app(self):
-        print("========================HOLA-BIENVENIDO================================================")
+        print("")
 
 
 while True:
-    print("De las siguientes opciones porfavor eliga una")
+    print("========================HOLA-BIENVENIDO================================================")
+    print("De las siguientes opciones porfavor eliga una :D")
     print("Opcion 1. Cargar Data")
     print("Opcion 2. Cargar Instrucciones")
     print("Opcion 3. Analizar")
