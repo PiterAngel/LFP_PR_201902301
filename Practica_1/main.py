@@ -1,32 +1,21 @@
-import re
-from tkinter import filedialog, Tk
+from abrir2 import abrir2
+from abrir3 import abrir3
+from Analizar_Data import Analizar_Data
+from Analizar_Lfp import Analizar_Lfp
+from Reporte import *
+
+a = abrir2()
+b = abrir3()
 
 
-def abrir():  # FUNCION ABRIR
+class main2:
+    def __init__(self):
+        self.app()
 
-    Tk().withdraw()  # SELECCIONARLO XD
-    archivo = filedialog.askopenfile(  # VARIABLE PARA ABRIR ARCHIVO
-        title="Seleccionar un archivo",
-        initialdir="./",  # la ./ seleccionar donde esta el archivo
-        filetypes=(
-            ("archivos Data", "*.txt"),
-            ("TODOS LOS ARCHIVOS", "*.*")  # *.* para cualquier cosa
-            # data.txt
-            # Holaclase.claselfp
-        )
-    )
-
-    if archivo is None:  # Si es nulo
-        print("No se SELECCIONO UN ARCHIVO")
-        return None
-    else:
-        texto = archivo.read()  # PARA LEER EL ARCHIVO
-        archivo.close()
-        return texto  # abrir e imprimir el texto dentro de ese archivo
+    def app(self):
+        print("========================HOLA-BIENVENIDO================================================")
 
 
-if __name__ == "__main__":
-    print("========================HOLA-BIENVENIDO================================================")
 while True:
     print("De las siguientes opciones porfavor eliga una")
     print("Opcion 1. Cargar Data")
@@ -38,21 +27,22 @@ while True:
 
     if opcion == 1:
 
-        print("cargar DATA")
-        abrir()
+        a.Leer_Data('.data')
+        # print(a.contenido)
 
     elif opcion == 2:
-        print("cargar instrucciones")
+        b.Leer_Lfp('.lfp')
 
     elif opcion == 3:
-        print("Analizar")
+        Analizar_Data(a.contenido).Analisis_Data()
+        Analizar_Lfp(b.contenido).Analisis_Lfp()
 
     elif opcion == 4:
-        print("Reportes")
+        generar(Analizar_Data(a.contenido).Analisis_Data())
 
     elif opcion == 5:
         print("Que tenga un bonito día C:")
-        print("=======================================================================================")
+        print("====================================================================================")
         break
     else:
         print("Error, porfavor ingrese solo una de las opciones")
